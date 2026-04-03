@@ -65,7 +65,7 @@ export function Skills() {
         
         {/* Header */}
         <motion.div {...RevealProps} className="max-w-2xl">
-          <h1 className="text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
             Skills
           </h1>
           <p className="text-xl text-[#444444] font-sans">

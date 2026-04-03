@@ -28,7 +28,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-7xl md:text-[128px] font-serif font-bold text-[#111111] mb-6 leading-none tracking-tight"
+          className="text-5xl sm:text-7xl md:text-[128px] font-serif font-bold text-[#111111] mb-6 leading-none tracking-tight"
         >
           Arpit Jain
         </motion.h1>
@@ -48,10 +48,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-14 inline-flex items-center bg-white px-6 py-3 rounded-full border border-black/5 shadow-sm"
+          className="mb-14 inline-flex items-center bg-white px-5 sm:px-6 py-3 rounded-2xl sm:rounded-full border border-black/5 shadow-sm"
         >
-          <p className="text-[15px] font-sans font-medium text-[#4b5563]">
-            BCA in AI and Data Science <span className="mx-3 text-gray-300">•</span> <span className="font-semibold text-[#111111]">JECRC University</span>
+          <p className="text-[13px] sm:text-[15px] flex flex-col sm:flex-row items-center gap-1 sm:gap-0 font-sans font-medium text-[#4b5563]">
+            <span>BCA in AI and Data Science</span> 
+            <span className="hidden sm:inline mx-3 text-gray-300">•</span> 
+            <span className="font-semibold text-[#111111]">JECRC University</span>
           </p>
         </motion.div>
 

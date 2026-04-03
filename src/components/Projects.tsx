@@ -49,7 +49,7 @@ export function Projects() {
     <section id="projects" className="py-24 px-6 bg-[#f8f6f0] min-h-screen overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div {...RevealProps} className="max-w-2xl mb-16">
-          <h1 className="text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
             Projects
           </h1>
           <p className="text-xl text-[#444444] font-sans leading-relaxed">

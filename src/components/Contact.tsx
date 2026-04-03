@@ -58,7 +58,7 @@ export function Contact() {
     <section id="contact" className="py-24 px-6 bg-[#f2f0ea] min-h-screen overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div {...RevealProps} className="mb-12">
-          <h1 className="text-6xl md:text-[72px] font-serif font-bold text-[#111111]">
+          <h1 className="text-5xl sm:text-6xl md:text-[72px] font-serif font-bold text-[#111111]">
             Contact
           </h1>
         </motion.div>

@@ -84,7 +84,7 @@ export function About() {
       <div className="max-w-6xl mx-auto space-y-32">
         {/* Hero Section */}
         <motion.div {...RevealProps} className="max-w-3xl">
-          <h1 className="text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-[72px] font-serif font-bold text-[#111111] mb-6 leading-tight">
             About Me
           </h1>
           <p className="text-xl md:text-2xl text-[#444444] leading-relaxed font-sans">
@@ -163,7 +163,7 @@ export function About() {
         <div className="pt-10">
           <motion.h2 
             {...RevealProps}
-            className="text-[48px] md:text-[64px] font-serif font-bold mb-20 text-center text-[#111111]"
+            className="text-4xl sm:text-[48px] md:text-[64px] font-serif font-bold mb-20 text-center text-[#111111]"
           >
             My Journey
           </motion.h2>
@@ -205,7 +205,7 @@ export function About() {
         <div className="pt-10">
           <motion.h2 
             {...RevealProps}
-            className="text-[48px] md:text-[64px] font-serif font-bold mb-16 text-center text-[#111111]"
+            className="text-4xl sm:text-[48px] md:text-[64px] font-serif font-bold mb-16 text-center text-[#111111]"
           >
             Achievements
           </motion.h2>
@@ -231,7 +231,7 @@ export function About() {
         <div className="pt-10 mb-20">
           <motion.h2 
             {...RevealProps}
-            className="text-[48px] md:text-[64px] font-serif font-bold mb-16 text-center text-[#111111]"
+            className="text-4xl sm:text-[48px] md:text-[64px] font-serif font-bold mb-16 text-center text-[#111111]"
           >
             Certifications
           </motion.h2>
