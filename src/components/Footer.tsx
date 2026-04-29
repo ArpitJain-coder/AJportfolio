@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, Heart } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const RevealProps = {
   initial: { opacity: 0, y: 30 },
@@ -18,12 +18,11 @@ export function Footer() {
   const socialLinks = [
     { Icon: FaGithub, href: "https://github.com/ArpitJain-coder", name: "GitHub" },
     { Icon: FaLinkedin, href: "https://www.linkedin.com/in/arpit-jain-87850637a?utm_source=share_via&utm_content=profile&utm_medium=member_android", name: "LinkedIn" },
-    { Icon: FaTwitter, href: "https://twitter.com/arpitjain", name: "Twitter" },
     { Icon: Mail, href: "mailto:arpitjain1402@gmail.com", name: "Email" },
   ];
 
   return (
-    <footer className="bg-[#0a0a0a] text-white py-12 px-8 overflow-hidden">
+    <footer className="bg-[#0a0a0a] text-white py-12 px-8 overflow-hidden print:hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
         <motion.div {...RevealProps} className="flex-1 max-w-lg">
           <Link href="/" className="text-2xl font-serif font-bold mb-4 block text-white">

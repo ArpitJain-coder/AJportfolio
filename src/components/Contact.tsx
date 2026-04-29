@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { Send, CheckCircle2 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -33,19 +33,25 @@ export function Contact() {
     setStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { 
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "41a05b77-e6e4-4b8f-b382-5eeb907740cf",
+          ...formData
+        }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        setStatus({ type: "success", message: data.message });
+      if (data.success) {
+        setStatus({ type: "success", message: "Message sent successfully! I will get back to you soon." });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        setStatus({ type: "error", message: data.message });
+        setStatus({ type: "error", message: data.message || "Something went wrong. Please try again." });
       }
     } catch (error) {
       setStatus({ type: "error", message: "Network error. Please try again later." });
@@ -153,7 +159,7 @@ export function Contact() {
                 Follow me on social media to stay updated with my latest projects.
               </p>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <a href="https://github.com/ArpitJain-coder" target="_blank" rel="noopener noreferrer" className="bg-white/5 hover:bg-[#c2a27c] hover:text-white text-gray-300 rounded-[16px] p-6 flex flex-col items-center justify-center gap-3 transition-colors duration-300 group">
                   <FaGithub size={24} />
                   <span className="font-sans text-xs font-medium">GitHub</span>
@@ -161,10 +167,6 @@ export function Contact() {
                 <a href="https://www.linkedin.com/in/arpit-jain-87850637a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/5 hover:bg-[#c2a27c] hover:text-white text-gray-300 rounded-[16px] p-6 flex flex-col items-center justify-center gap-3 transition-colors duration-300 group">
                   <FaLinkedin size={24} />
                   <span className="font-sans text-xs font-medium">LinkedIn</span>
-                </a>
-                <a href="https://twitter.com/arpitjain" target="_blank" rel="noopener noreferrer" className="bg-white/5 hover:bg-[#c2a27c] hover:text-white text-gray-300 rounded-[16px] p-6 flex flex-col items-center justify-center gap-3 transition-colors duration-300 group">
-                  <FaTwitter size={24} />
-                  <span className="font-sans text-xs font-medium">Twitter</span>
                 </a>
               </div>
             </motion.div>

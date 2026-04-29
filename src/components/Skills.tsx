@@ -95,26 +95,14 @@ export function Skills() {
                     transition={{ duration: 0.5, delay: sIdx * 0.1 }}
                     className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group border border-black/5"
                   >
-                    <div className="flex items-center gap-5">
-                      <div className="w-12 h-12 shrink-0 bg-[#f8f6f0] rounded-[14px] flex items-center justify-center text-[#c2a27c]">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 shrink-0 bg-[#f8f6f0] rounded-2xl flex items-center justify-center text-[#c2a27c] group-hover:scale-110 transition-transform duration-300">
                         {skill.icon}
                       </div>
-                      <div className="flex-1 space-y-3">
-                        <div className="flex justify-between items-center px-1">
-                          <h3 className="font-sans font-bold text-[15px] tracking-wide text-[#111111]">{skill.name}</h3>
-                          <span className="font-sans text-xs font-semibold tracking-wider text-[#c2a27c]">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        {/* Progress Bar */}
-                        <div className="h-1.5 w-full bg-[#f8f6f0] rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 + (sIdx * 0.1) }}
-                            className="h-full bg-[#c2a27c] rounded-full transition-colors"
-                          />
-                        </div>
+                      <div>
+                        <h3 className="font-sans font-bold text-[16px] tracking-wide text-[#111111] group-hover:text-[#c2a27c] transition-colors duration-300">
+                          {skill.name}
+                        </h3>
                       </div>
                     </div>
                   </motion.div>

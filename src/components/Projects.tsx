@@ -25,7 +25,7 @@ const projects = [
     tech: ["Python", "OpenAI API", "NLTK", "Flask", "React"],
     image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=2670&auto=format&fit=crop",
     github: "#",
-    live: "#",
+    live: "https://medical-report-simplification.vercel.app/",
   },
 ];
 
@@ -106,9 +106,6 @@ export function Projects() {
                   <span className="px-4 py-1 bg-[#d8b082] rounded-[16px] text-[13px] font-semibold text-white shadow-sm">
                     Featured
                   </span>
-                  <span className="px-4 py-1 bg-black/40 backdrop-blur-md rounded-[16px] text-[13px] font-semibold text-white shadow-sm">
-                    {project.year}
-                  </span>
                 </div>
               </div>
 
@@ -135,10 +132,15 @@ export function Projects() {
                   ))}
                 </div>
                 
-                <div className="mt-auto">
+                <div className="mt-auto flex items-center gap-6">
                   <a href={project.github} className="flex items-center gap-2 font-sans font-medium text-[15px] text-[#111111] hover:text-[#c2a27c] transition-colors w-fit group/link">
                     <FaGithub size={20} className="group-hover/link:text-[#c2a27c] transition-colors" /> Code
                   </a>
+                  {project.live !== "#" && (
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-sans font-medium text-[15px] text-[#111111] hover:text-[#c2a27c] transition-colors w-fit group/link">
+                      <ExternalLink size={20} className="group-hover/link:text-[#c2a27c] transition-colors" /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
