@@ -40,7 +40,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-[24px] text-[#4b5563] mb-10 max-w-3xl mx-auto font-sans leading-relaxed"
         >
-          Building intelligent systems with code & creativity
+          AI & Data Science Student Building Real-World Intelligent Systems
         </motion.h2>
 
         {/* Info Badge */}
@@ -66,15 +66,21 @@ export function Hero() {
         >
           <Link
             href="/projects"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-[#111111] text-white rounded-full hover:bg-black transition-colors duration-300 text-[15px] font-sans font-medium w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-[#111111] text-white rounded-full hover:bg-black hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[15px] font-sans font-medium w-full sm:w-auto"
           >
-            View My Work <ArrowRight size={18} />
+            View Projects <ArrowRight size={18} />
+          </Link>
+          <Link
+            href="/resume"
+            className="flex items-center justify-center px-8 py-4 bg-white border border-gray-200 text-[#111111] rounded-full hover:bg-gray-50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-[15px] font-sans font-medium w-full sm:w-auto"
+          >
+            Download Resume
           </Link>
           <Link
             href="/contact"
-            className="flex items-center justify-center px-8 py-4 border-2 border-[#111111] text-[#111111] rounded-full hover:bg-[#111111] hover:text-white transition-colors duration-300 text-[15px] font-sans font-medium w-full sm:w-auto"
+            className="flex items-center justify-center px-8 py-4 border-2 border-[#111111] text-[#111111] rounded-full hover:bg-[#111111] hover:text-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[15px] font-sans font-medium w-full sm:w-auto"
           >
-            Get In Touch
+            Contact Me
           </Link>
         </motion.div>
       </div>
