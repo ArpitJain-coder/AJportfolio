@@ -21,7 +21,6 @@ const hardSkillCategories = [
       { name: "Python", level: 85, icon: <Code2 size={20} /> },
       { name: "C++", level: 75, icon: <Code2 size={20} /> },
       { name: "SQL", level: 80, icon: <Code2 size={20} /> },
-      { name: "JavaScript", level: 65, icon: <Code2 size={20} /> },
     ],
   },
   {
@@ -60,7 +59,7 @@ const RevealProps = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-[#f8f6f0] min-h-screen overflow-hidden">
+    <section id="skills" className="py-24 px-6 bg-[#f8f5f2] min-h-screen overflow-hidden">
       <div className="max-w-5xl mx-auto space-y-20">
         
         {/* Header */}

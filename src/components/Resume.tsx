@@ -13,13 +13,13 @@ const RevealProps = {
 
 export function Resume() {
   return (
-    <section id="resume" className="py-24 px-6 bg-[#f8f6f0] overflow-hidden border-t border-black/5">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
-        <motion.div {...RevealProps} className="space-y-6">
-          <h2 className="text-4xl sm:text-[48px] md:text-[64px] font-serif font-bold text-[#111111] leading-tight">
+    <section id="resume" className="py-32 px-8 md:px-12 bg-[#f8f5f2] overflow-hidden border-t border-black/5">
+      <div className="max-w-5xl mx-auto text-center space-y-16">
+        <motion.div {...RevealProps} className="space-y-8">
+          <h2 className="text-5xl sm:text-7xl md:text-[80px] font-serif font-bold text-[#111111] leading-[0.9] tracking-tight">
             Resume
           </h2>
-          <p className="text-xl text-[#444444] font-sans max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#444444] font-sans font-medium max-w-3xl mx-auto leading-tight">
             Interested in my background and experience? Download my resume to see my full professional timeline and technical skill set.
           </p>
         </motion.div>
@@ -31,18 +31,18 @@ export function Resume() {
         >
           <Link
             href="/resume"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-[#111111] text-white rounded-full hover:bg-[#c2a27c] transition-colors duration-300 text-[16px] font-sans font-medium w-full sm:w-auto shadow-sm"
+            className="flex items-center justify-center gap-3 px-10 py-5 bg-[#111111] text-white rounded-full hover:bg-black transition-all duration-300 text-lg font-sans font-bold w-full sm:w-auto shadow-sm"
           >
-            <FileText size={20} />
+            <FileText size={22} />
             View Interactive Resume
           </Link>
-          <a
+          <Link
             href="/about"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-white border border-[#111111]/10 text-[#111111] rounded-full hover:bg-gray-50 transition-colors duration-300 text-[16px] font-sans font-medium w-full sm:w-auto shadow-sm"
+            className="flex items-center justify-center gap-3 px-10 py-5 bg-white border-[1.5px] border-[#111111] text-[#111111] rounded-full hover:bg-[#111111] hover:text-white transition-all duration-300 text-lg font-sans font-bold w-full sm:w-auto shadow-sm"
           >
-            <FileText size={20} className="text-[#c2a27c]" />
+            <FileText size={22} className="group-hover:text-white transition-colors" />
             View Full Journey
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

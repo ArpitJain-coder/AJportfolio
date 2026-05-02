@@ -30,37 +30,37 @@ const RevealProps = {
 
 export function WhatIDo() {
   return (
-    <section className="py-24 px-6 bg-[#f2f0ea] overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
+    <section className="py-32 px-8 md:px-12 bg-[#f8f5f2] overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-3xl mb-16">
           <motion.h2
             {...RevealProps}
-            className="text-[48px] md:text-[64px] font-serif font-bold text-[#111111] mb-6"
+            className="text-4xl md:text-5xl font-serif font-bold text-[#111111] mb-6 leading-[1] tracking-tight"
           >
             What I Do
           </motion.h2>
           <motion.p
             {...RevealProps}
             transition={{ ...RevealProps.transition, delay: 0.1 }}
-            className="text-lg md:text-[20px] text-[#4b5563] font-sans max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-[#444444] font-sans font-medium max-w-2xl"
           >
-            Transforming ideas into intelligent solutions through code
+            Transforming ideas into intelligent solutions through code, data, and creativity.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               {...RevealProps}
               transition={{ ...RevealProps.transition, delay: index * 0.1 }}
-              className="p-10 bg-white rounded-[24px] shadow-sm hover:shadow-md transition-shadow duration-500"
+              className="p-12 bg-white rounded-[32px] shadow-sm border border-black/5 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group"
             >
-              <div className="w-16 h-16 rounded-[16px] bg-[#f8f6f0] flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-[20px] bg-[#f8f5f2] flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
-              <h3 className="text-[22px] font-sans font-semibold text-[#111111] mb-4">{service.title}</h3>
-              <p className="text-[#4b5563] text-[15px] leading-relaxed font-sans">{service.description}</p>
+              <h3 className="text-2xl font-sans font-bold text-[#111111] mb-4 tracking-tight">{service.title}</h3>
+              <p className="text-[#4b5563] text-[16px] leading-relaxed font-sans font-medium">{service.description}</p>
             </motion.div>
           ))}
         </div>
