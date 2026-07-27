@@ -35,24 +35,14 @@ export default function Portfolio() {
   useEffect(() => {
     const preloader = document.getElementById('preloader')
     const bar       = document.getElementById('preloader-bar')
-    const percent   = document.getElementById('preloader-percent')
     if (!preloader || !bar) return
-
-    let current = 0
-    const interval = setInterval(() => {
-      current += 10
-      if (current > 100) current = 100
-      if (bar) bar.style.width = `${current}%`
-      if (percent) percent.innerText = `${current}%`
-      if (current === 100) clearInterval(interval)
-    }, 50)
-
+    const t1 = setTimeout(() => { bar.style.width = '100%' }, 100)
     const t2 = setTimeout(() => {
       preloader.style.opacity       = '0'
       preloader.style.pointerEvents = 'none'
-    }, 750)
+    }, 700)
     const t3 = setTimeout(() => { preloader.style.display = 'none' }, 1400)
-    return () => { clearInterval(interval); clearTimeout(t2); clearTimeout(t3) }
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
   }, [])
 
   /* ── Reveal on Scroll ── */
@@ -107,28 +97,13 @@ export default function Portfolio() {
       <div id="preloader" style={{
         position: 'fixed', inset: 0, background: '#050505', zIndex: 99999,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
-        justifyContent: 'center', transition: 'opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+        justifyContent: 'center', transition: 'opacity 0.7s',
       }}>
-        <div className="relative flex flex-col items-center px-4">
-          <div style={{ position: 'absolute', width: '10rem', height: '10rem', background: 'rgba(255,69,0,0.25)', borderRadius: '50%', filter: 'blur(32px)', animation: 'pulse 2s ease-in-out infinite' }} />
-          
-          <div className="relative mb-6 flex items-center justify-center">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#FF4500]/20 border-t-[#FF4500] animate-spin" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-serif text-lg sm:text-xl font-bold text-white tracking-widest">AJ</span>
-            </div>
-          </div>
-
-          <div className="preloader-title text-[#ffe0e0] font-serif text-lg sm:text-2xl font-bold tracking-[0.25em] mb-4 text-center">
-            INITIALIZING
-          </div>
-
-          <div className="w-48 max-w-[70vw] h-[3px] bg-white/10 rounded-full overflow-hidden shadow-inner">
-            <div id="preloader-bar" className="h-full w-0 bg-gradient-to-r from-[#FF4500] to-[#ff7a00] rounded-full transition-all duration-300 ease-out" />
-          </div>
-
-          <div id="preloader-percent" className="font-mono text-xs text-white/50 tracking-widest mt-3">
-            0%
+        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ position: 'absolute', width: '6rem', height: '6rem', background: 'rgba(255,69,0,0.2)', borderRadius: '50%', filter: 'blur(24px)', animation: 'pulse 2s ease-in-out infinite' }} />
+          <div className="preloader-title">AJ.</div>
+          <div style={{ width: '12rem', maxWidth: '80vw', height: '2px', background: 'rgba(255,255,255,0.1)', borderRadius: '999px', overflow: 'hidden' }}>
+            <div id="preloader-bar" style={{ height: '100%', width: 0, background: '#FF4500', borderRadius: '999px', transition: 'width 0.5s ease-out' }} />
           </div>
         </div>
       </div>
