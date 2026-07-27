@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════
+   GLOBAL — prevent ANY horizontal overflow
+   ══════════════════════════════════════════ */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ── Root Variables ── */
+:root {
+  --bg: #050505;
+  --accent: #FF4500;
+  --card: #111111;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #050505;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Reveal Scroll Animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Noise Overlay ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* ── Parallax Cards ── */
+.parallax-card-up {
+  transform: translateY(var(--scroll-offset-up, 0px));
+}
+.parallax-card-down {
+  transform: translateY(var(--scroll-offset-down, 0px));
+}
+
+/* ── Glow Hover ── */
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.15);
+}
+
+/* ── Preloader ── */
+.preloader-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: white;
+  margin-bottom: 1.5rem;
+  user-select: none;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── 4K / Ultra-wide Scaling ── */
+@media (min-width: 1920px) { html { font-size: 18px; } }
+@media (min-width: 2560px) { html { font-size: 22px; } }
+@media (min-width: 3840px) { html { font-size: 30px; } }
+
+/* ══════════════════════════════════════════
+   PILL NAV — fixed + centered on desktop
+   ══════════════════════════════════════════ */
+.pill-nav-container {
+  position: fixed !important;
+  top: 14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 999 !important;
+  width: max-content !important;
+  max-width: calc(100vw - 24px) !important; /* never wider than viewport */
+}
+
+/* Tablet: compress pill size to fit all 6 items */
+@media (min-width: 768px) and (max-width: 1080px) {
+  .pill-nav-container {
+    max-width: calc(100vw - 24px) !important;
+  }
+  .pill-nav {
+    --pill-pad-x: 12px !important;
+    --nav-h: 38px !important;
+  }
+  .pill {
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+  }
+  .pill-logo {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* Mobile: full-width bar */
+@media (max-width: 767px) {
+  .pill-nav-container {
+    left: 0 !important;
+    transform: none !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 0 !important;
+    background: rgba(5,5,5,0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+}
+
+/* Pill label — slightly larger on desktop */
+@media (min-width: 1081px) {
+  .pill {
+    font-size: 11px !important;
+    letter-spacing: 0.12em !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   PROJECT CARDS — ensure no overflow on mobile
+   ══════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Reset parallax transforms completely on mobile */
+  .parallax-card-up,
+  .parallax-card-down {
+    transform: none !important;
+  }
+  /* Remove the md:mt-12 top offset that bleeds layout on narrow tablets */
+  .parallax-card-up {
+    margin-top: 0 !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESUME — Paper Mode
+   ══════════════════════════════════════════ */
+.paper-mode {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+.paper-mode .resume-sheet {
+  background-color: white !important;
+  color: #1f2937 !important;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1) !important;
+  border-color: transparent !important;
+}
+.paper-mode .section-line      { border-color: #111827 !important; }
+.paper-mode .section-heading   { color: #4ba4e3 !important; }
+.paper-mode .bullet-item::before { background-color: #111827 !important; }
+.paper-mode strong             { color: #111827 !important; }
+.paper-mode h1, .paper-mode h2, .paper-mode h3 { color: #111827 !important; }
+.paper-mode p,  .paper-mode li { color: #374151 !important; }
+
+/* ── Bullet Items ── */
+.bullet-item {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.bullet-item::before {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.55rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+}
+
+/* ── Print Styles ── */
+@media print {
+  .no-print { display: none !important; }
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .resume-sheet {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .section-heading { color: #4ba4e3 !important; }
+  .section-line    { border-color: #000 !important; }
+  .bullet-item::before { background-color: #000 !important; }
+  a      { text-decoration: none !important; color: black !important; }
+  strong { color: black !important; }
+}

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpit Jain - Resume</title>
+    <meta name="description" content="Resume of Arpit Jain, AI & Data Science BCA student at JECRC University.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #FF4500;
+            --resume-heading: #4ba4e3; /* matches blue headings in user resume */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* 4K and Ultra-wide Scaling */
+        @media (min-width: 1920px) {
+            html { font-size: 18px; }
+            .max-w-4xl { max-w: 65rem; }
+        }
+        @media (min-width: 2560px) {
+            html { font-size: 22px; }
+            .max-w-4xl { max-w: 75rem; }
+        }
+        @media (min-width: 3840px) {
+            html { font-size: 30px; }
+            .max-w-4xl { max-w: 90rem; }
+        }
+
+        /* Screen-only styling for the paper simulation */
+        .paper-mode {
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+
+        .paper-mode .resume-sheet {
+            background-color: white;
+            color: #1f2937;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .paper-mode .section-line {
+            border-color: #111827;
+        }
+
+        .paper-mode .section-heading {
+            color: var(--resume-heading);
+        }
+
+        .paper-mode .bullet-item::before {
+            background-color: #111827;
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.04;
+            mix-blend-mode: overlay;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        }
+
+        /* Responsive bullet spacing */
+        .bullet-item {
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        .bullet-item::before {
+            content: "";
+            position: absolute;
+            left: 0.25rem;
+            top: 0.55rem;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+        }
+        .paper-mode .bullet-item::before {
+            background-color: #374151;
+        }
+
+        /* Print media styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .resume-sheet {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .section-heading {
+                color: #4ba4e3 !important;
+            }
+            .section-line {
+                border-color: #000000 !important;
+            }
+            .bullet-item::before {
+                background-color: #000000 !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen relative p-4 md:p-8 flex flex-col items-center">
+    <!-- Noise overlay -->
+    <div class="noise-overlay no-print"></div>
+
+    <!-- Control Header -->
+    <header class="w-full max-w-4xl flex flex-wrap justify-between items-center gap-4 mb-8 no-print z-10">
+        <a href="index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+            <iconify-icon icon="lucide:arrow-left" class="text-sm"></iconify-icon>
+            Back to Portfolio
+        </a>
+        
+        <div class="flex items-center gap-3">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                <iconify-icon id="theme-icon" icon="lucide:sun" class="text-sm"></iconify-icon>
+                <span id="theme-text">Toggle Light Sheet</span>
+            </button>
+
+            <!-- Print Trigger -->
+            <button onclick="window.print()" class="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:scale-105 hover:bg-gray-100 transition-all duration-300">
+                <iconify-icon icon="lucide:printer" class="text-sm"></iconify-icon>
+                Print / Save PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Resume Page Container -->
+    <main class="w-full max-w-4xl bg-[#111] border border-white/5 rounded-3xl p-6 md:p-12 shadow-2xl transition-colors duration-300 resume-sheet mb-12">
+        
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-2 uppercase font-serif">Arpit Jain</h1>
+            <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-xs md:text-sm text-gray-400 font-mono transition-colors duration-300">
+                <a href="tel:+916350307216" class="hover:text-[#FF4500]">+91 63503 07216</a>
+                <span>•</span>
+                <a href="mailto:arpitjain1402@gmail.com" class="hover:text-[#FF4500]">arpitjain1402@gmail.com</a>
+                <span>•</span>
+                <span>Jaipur, Rajasthan</span>
+            </div>
+        </div>
+
+        <!-- Objective -->
+        <section class="mb-8">
+            <h2 class="text-sm md:text-base font-semibold uppercase tracking-widest text-[#4ba4e3] section-heading transition-colors duration-300">Objective</h2>
+            <div class="w-full border-b border-white/10 my-2 section-line"></div>
+            <p class="text-xs md:text-sm leading-relaxed font-light text-gray-300 transition-colors duration-300">
+                BCA student (AI & Data Science) at JECRC University with self-driven experience building end-to-end ML projects in Python. Looking for a summer internship in Machine Learning or Data Science where I can contribute to real datasets, learn from experienced engineers, and grow faster than a classroom allows.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="mb-8">
+            <h2 class="text-sm md:text-base font-semibold uppercase tracking-widest text-[#4ba4e3] section-heading transition-colors duration-300">Technical Skills</h2>
+            <div class="w-full border-b border-white/10 my-2 section-line"></div>
+            <ul class="space-y-2 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                <li class="bullet-item">
+                    <strong class="font-medium text-white transition-colors duration-300">Languages & Core Concepts:</strong> Python, SQL, C, OOP, DBMS
+                </li>
+                <li class="bullet-item">
+                    <strong class="font-medium text-white transition-colors duration-300">Machine Learning & Data Science:</strong> Classification Algorithms, Supervised Learning, Predictive Modeling, Data Cleaning, Feature Engineering, Model Evaluation, Hyperparameter Tuning, EDA, Data Visualization
+                </li>
+                <li class="bullet-item">
+                    <strong class="font-medium text-white transition-colors duration-300">Libraries & Frameworks:</strong> pandas, NumPy, scikit-learn, Matplotlib, Seaborn
+                </li>
+                <li class="bullet-item">
+                    <strong class="font-medium text-white transition-colors duration-300">Tools & Deployment:</strong> GitHub, Jupyter Notebook, VS Code, Vercel
+                </li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section class="mb-8">
+            <h2 class="text-sm md:text-base font-semibold uppercase tracking-widest text-[#4ba4e3] section-heading transition-colors duration-300">Projects</h2>
+            <div class="w-full border-b border-white/10 my-2 section-line"></div>
+            
+            <div class="space-y-6">
+                <!-- Project 1 -->
+                <div>
+                    <div class="flex justify-between items-baseline gap-4 mb-2">
+                        <h3 class="text-sm md:text-base font-bold text-white transition-colors duration-300">Telecom Customer Churn Prediction</h3>
+                        <span class="text-[10px] md:text-xs text-gray-400 font-mono">May 2026</span>
+                    </div>
+                    <ul class="space-y-1 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Problem:</strong> Telecom companies face unexpected revenue loss due to latent customer churn patterns.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Solution:</strong> Developed a predictive modeling pipeline executing rigorous data cleaning, feature engineering, and hyperparameter tuning on large-scale telecom datasets.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Technologies Used:</strong> Python, pandas, scikit-learn, XGBoost, Matplotlib, Seaborn, Vercel</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Impact/Results:</strong> Trained advanced classification algorithms (XGBoost, Random Forest), achieving 87% predictive accuracy and enabling proactive retention strategies.</li>
+                    </ul>
+                </div>
+
+                <!-- Project 2 -->
+                <div>
+                    <div class="flex justify-between items-baseline gap-4 mb-2">
+                        <h3 class="text-sm md:text-base font-bold text-white transition-colors duration-300">Medical Report Simplification</h3>
+                        <span class="text-[10px] md:text-xs text-gray-400 font-mono">April 2026</span>
+                    </div>
+                    <ul class="space-y-1 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Problem:</strong> Patients often struggle to comprehend complex clinical terminology in standard medical reports.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Solution:</strong> Engineered an end-to-end text summarization pipeline leveraging transformer-based abstractive summarization techniques.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Technologies Used:</strong> Python, Transformers, NumPy, Vercel</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Impact/Results:</strong> Reduced reading comprehension barriers by delivering highly accurate, simplified report summaries deployed via an accessible web interface.</li>
+                    </ul>
+                </div>
+
+                <!-- Project 3 -->
+                <div>
+                    <div class="flex justify-between items-baseline gap-4 mb-2">
+                        <h3 class="text-sm md:text-base font-bold text-white transition-colors duration-300">Heart Disease Prediction</h3>
+                        <span class="text-[10px] md:text-xs text-gray-400 font-mono">April 2026</span>
+                    </div>
+                    <ul class="space-y-1 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Problem:</strong> Early detection of cardiovascular risks is challenging without automated, data-driven analytical tools.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Solution:</strong> Conducted comprehensive EDA, data visualization, and utilized supervised learning methods to classify patient risk profiles.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Technologies Used:</strong> Python, scikit-learn, KNN, Random Forest, pandas, Matplotlib, GitHub</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Impact/Results:</strong> Delivered robust model evaluation metrics, securing an 85% accuracy rate in early disease detection classification.</li>
+                    </ul>
+                </div>
+
+                <!-- Project 4 -->
+                <div>
+                    <div class="flex justify-between items-baseline gap-4 mb-2">
+                        <h3 class="text-sm md:text-base font-bold text-white transition-colors duration-300">Movie Recommendation System</h3>
+                        <span class="text-[10px] md:text-xs text-gray-400 font-mono">March 2026</span>
+                    </div>
+                    <ul class="space-y-1 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Problem:</strong> Overwhelmed users face decision paralysis trying to locate relevant cinematic content from thousands of titles.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Solution:</strong> Engineered a hybrid recommendation engine utilizing TF-IDF vectorization and Cosine Similarity on metadata.</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Technologies Used:</strong> Python, pandas, scikit-learn, Cosine Similarity, NLTK, Streamlit, Vercel</li>
+                        <li class="bullet-item"><strong class="font-medium text-white/90">Impact/Results:</strong> Developed an interactive Streamlit UI rendering dynamic top-10 recommended titles with sub-second retrieval latency.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mb-8">
+            <h2 class="text-sm md:text-base font-semibold uppercase tracking-widest text-[#4ba4e3] section-heading transition-colors duration-300">Education</h2>
+            <div class="w-full border-b border-white/10 my-2 section-line"></div>
+            
+            <div class="flex justify-between items-baseline gap-4 text-xs md:text-sm text-gray-300">
+                <div>
+                    <h3 class="font-bold text-white transition-colors duration-300 text-sm md:text-base">JECRC University, Jaipur</h3>
+                    <p class="font-light text-white/95 mt-1">BCA (Artificial Intelligence & Data Science)</p>
+                </div>
+                <span class="text-[10px] md:text-xs text-gray-400 font-mono">Expected May 2028</span>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="mb-4">
+            <h2 class="text-sm md:text-base font-semibold uppercase tracking-widest text-[#4ba4e3] section-heading transition-colors duration-300">Certifications</h2>
+            <div class="w-full border-b border-white/10 my-2 section-line"></div>
+            <ul class="space-y-1.5 text-xs md:text-sm text-gray-300 transition-colors duration-300">
+                <li class="bullet-item"><strong class="font-medium text-white transition-colors duration-300">Claude Code in Action</strong> – Anthropic</li>
+                <li class="bullet-item"><strong class="font-medium text-white transition-colors duration-300">Data Analytics Job Simulation</strong> – Deloitte Australia</li>
+                <li class="bullet-item"><strong class="font-medium text-white transition-colors duration-300">GenAI Powered Data Analytics Job Simulation</strong> – Tata</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        // Interactive Toggle logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('paper-mode');
+            const isPaper = document.body.classList.contains('paper-mode');
+            if (isPaper) {
+                themeIcon.setAttribute('icon', 'lucide:moon');
+                themeText.textContent = 'Toggle Dark Sheet';
+            } else {
+                themeIcon.setAttribute('icon', 'lucide:sun');
+                themeText.textContent = 'Toggle Light Sheet';
+            }
+        });
+    </script>
+</body>
+</html>
