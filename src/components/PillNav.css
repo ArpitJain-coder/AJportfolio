@@ -152,9 +152,12 @@
 }
 
 .mobile-only,
-.awwwards-menu-btn,
-.awwwards-mobile-overlay {
+.awwwards-menu-btn {
   display: none !important;
+}
+
+.awwwards-mobile-overlay {
+  display: none;
 }
 
 @media (max-width: 767px) {
@@ -165,6 +168,12 @@
   .mobile-only,
   .awwwards-menu-btn {
     display: flex !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .awwwards-mobile-overlay {
+    display: none !important;
   }
 }
 

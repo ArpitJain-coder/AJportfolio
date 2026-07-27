@@ -109,15 +109,25 @@ const PillNav = ({
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease, initialLoadAnimation]);
 
-  /* ── Body Scroll Lock for Fullscreen Mobile Overlay ── */
+  /* ── Body Scroll Lock for Fullscreen Mobile Overlay & Resize Reset ── */
   useEffect(() => {
     if (isMobileOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMobileOpen) {
+        setIsMobileOpen(false);
+        if (mobileOverlayRef.current) {
+          gsap.set(mobileOverlayRef.current, { display: 'none' });
+        }
+      }
+    };
+    window.addEventListener('resize', handleResize);
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('resize', handleResize);
     };
   }, [isMobileOpen]);
 
@@ -130,8 +140,11 @@ const PillNav = ({
     const itemEls = menuItemsRef.current.filter(Boolean);
     const metaEl = menuMetaRef.current;
 
+    if (!overlay) return;
+
     if (nextState) {
       // Opening
+      gsap.killTweensOf([overlay, ...itemEls, metaEl]);
       gsap.set(overlay, { display: 'flex', opacity: 0, y: '-100%' });
       gsap.set(itemEls, { opacity: 0, y: 50 });
       if (metaEl) gsap.set(metaEl, { opacity: 0, y: 20 });
@@ -158,6 +171,7 @@ const PillNav = ({
       }, '-=0.2');
     } else {
       // Closing
+      gsap.killTweensOf([overlay, ...itemEls]);
       const tl = gsap.timeline({
         onComplete: () => {
           gsap.set(overlay, { display: 'none' });
@@ -333,7 +347,7 @@ const PillNav = ({
           AWWARDS-STYLE FULLSCREEN MOBILE OVERLAY MENU
           ══════════════════════════════════════════════════════════ */}
       <div
-        className="awwwards-mobile-overlay mobile-only"
+        className="awwwards-mobile-overlay"
         ref={mobileOverlayRef}
         style={{ display: 'none' }}
       >
